@@ -1,0 +1,27 @@
+{
+  "common": {
+    "name": "ae200",
+    "version": "0.0.1",
+    "title": "AE200 Adapter",
+    "news": {
+      "0.0.1": {
+        "en": "Initial release"
+      }
+    },
+    "desc": {
+      "en": "Adapter for AE200 device"
+    },
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "type": "general",
+    "icon": "ae200.png",
+    "enabled": true
+  },
+  "native": {
+    "host": "192.168.3.249",
+    "username": "administrator",
+    "password": "9055"
+  },
+  "objects": [],
+  "instanceObjects": []
+}
