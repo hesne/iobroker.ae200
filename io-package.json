@@ -18,9 +18,9 @@
     "enabled": true
   },
   "native": {
-    "host": "192.168.3.249",
-    "username": "administrator",
-    "password": "9055"
+    "host": "your-ae200-host",
+    "username": "your-username",
+    "password": "your-password"
   },
   "objects": [],
   "instanceObjects": []

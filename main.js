@@ -1,7 +1,7 @@
 "use strict";
 
-const utils = require('@iobroker/adapter-core'); // Import the ioBroker adapter core
-const AE200 = require('ae200'); // Import the AE200 library
+const utils = require('@iobroker/adapter-core'); // Importing the ioBroker adapter core
+const fetch = require('node-fetch'); // Importing fetch for HTTP requests
 
 class AE200Adapter extends utils.Adapter {
     constructor(options = {}) {
@@ -18,16 +18,9 @@ class AE200Adapter extends utils.Adapter {
     async onReady() {
         this.log.info('Starting AE200 Adapter...');
 
-        // Initialize the AE200 connection
-        this.ae200 = new AE200({
-            host: this.config.host,
-            username: this.config.username,
-            password: this.config.password
-        });
-
         // Example to fetch data
         try {
-            const data = await this.ae200.fetchData();
+            const data = await this.fetchData();
             this.log.info('Fetched data: ' + JSON.stringify(data));
 
             // Save fetched data in ioBroker states
@@ -35,6 +28,13 @@ class AE200Adapter extends utils.Adapter {
         } catch (error) {
             this.log.error('Error fetching data: ' + error);
         }
+    }
+
+    async fetchData() {
+        // Hier kannst du die Logik zum Abrufen der Daten von deinem AE200-Gerät hinzufügen
+        const response = await fetch('http://your-ae200-host/api/status');
+        const data = await response.json();
+        return data; // Beispiel-Daten
     }
 
     onStateChange(id, state) {
